@@ -1,0 +1,69 @@
+/* Update these specific parts of your CSS */
+
+:root {
+  --apple-blue: #007aff;
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.12);
+}
+
+body {
+    /* More dynamic background for mobile */
+    background: radial-gradient(circle at top left, #1e3a8a, #0f172a);
+    padding: 1rem; /* Space around the edge of the phone */
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.form-container {
+    width: 100%; /* Full width on mobile */
+    max-width: 480px; /* Limits size on desktop */
+    margin: 0 auto;
+    padding: 1.5rem; /* Smaller padding for mobile screens */
+    border-radius: 28px; /* Softer Apple-style corners */
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+/* Fix the Grid: 2 columns on desktop, 1 on mobile if needed */
+.grid-2, .grid-3 {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+/* Mobile-Specific Adjustments */
+@media (max-width: 400px) {
+    h1 { font-size: 1.5rem; }
+    
+    .glass-section {
+        padding: 0.8rem;
+    }
+    
+    /* Make inputs larger for easier tapping (Finger-friendly) */
+    input, select, textarea, .submit-btn {
+        font-size: 16px !important; /* Prevents iOS auto-zoom on focus */
+        padding: 14px;
+    }
+    
+    .total-box {
+        font-size: 1.2rem;
+    }
+}
+
+/* Receipt Mobile Fix */
+.receipt-overlay {
+    padding: 10px; /* Ensure receipt doesn't touch phone edges */
+}
+
+.receipt {
+    width: 100%;
+    max-width: 340px;
+    /* Prevent text from being too small on high-res screens */
+    font-size: 14px; 
+}
+
+/* Smooth tap transitions for mobile buttons */
+.submit-btn:active {
+    transform: scale(0.96);
+    background: #0056b3;
+}
